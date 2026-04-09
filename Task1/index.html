@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Premium Bakery</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="logo"><img src="pngwing.com.png" alt="" srcset=""></div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Nav Links -->
+  <nav id="nav-menu">
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+    <button class="btn-primary">Order Now</button>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Freshly Baked,<br>Just for You</h1>
+    <p>Experience premium handcrafted bakery items made daily.</p>
+    <button class="btn-primary">Order Now</button>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <h2>Why Choose Us?</h2>
+  <p class="subtitle">Crafted with passion, baked to perfection.</p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="Artisan Breads.avif">
+      <h3>Artisan Breads</h3>
+      <p>Slow-fermented breads for rich flavor and texture.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/types-danish-flaky-sweet-pastries_1029476-435148.jpg">
+      <h3>Sweet Pastries</h3>
+      <p>Flaky, buttery pastries baked fresh every morning.</p>
+    </div>
+
+    <div class="card">
+      <img src="Custom Cakes.jpg">
+      <h3>Custom Cakes</h3>
+      <p>Designed to make your celebrations unforgettable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section class="visit">
+  <div class="visit-overlay">
+    <h2>Visit Us Today</h2>
+    <p>
+      Step into our bakery and experience the aroma of freshly baked goods.
+      Fresh, warm, and made with love — every single day.
+    </p>
+    <button class="btn-primary">Get Directions</button>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+  <h2>Our Creations</h2>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+    <img src="our creation3.jpg">
+    <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75">
+    <img src="https://plus.unsplash.com/premium_photo-1664640733898-d5c3f71f44e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+    <img src="our creation 2.avif">
+    <img src="our creation1.avif">
+    <img src="our creation4.webp">
+
+  </div>
+</section>
+
+<section class="about-final">
+  <div class="about-container">
+
+    <div class="about-text">
+      <h2>About Our Bakery</h2>
+      <p>
+        At Bakery, we believe that every bite should tell a story. 
+        Our journey started with a passion for crafting fresh, high-quality baked goods 
+        using traditional recipes and modern techniques.
+      </p>
+
+      <p>
+        From artisan breads to custom cakes, everything we create is made with 
+        carefully selected ingredients and a love for perfection. 
+        We are dedicated to bringing warmth, flavor, and joy to every customer.
+      </p>
+
+      <button class="btn-primary">Learn More</button>
+    </div>
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d">
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+</body>
+</html>
