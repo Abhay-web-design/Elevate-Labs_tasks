@@ -103,7 +103,7 @@ It adapts smoothly to:
 
 ## 📌 Submission
 
-GitHub Repository Link: *(Paste your repo link here)*
+GitHub Repository Link: https://github.com/Abhay-web-design/Elevate-Labs_tasks/tree/main/Task1
 
 ---
 
