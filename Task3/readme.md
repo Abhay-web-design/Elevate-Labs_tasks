@@ -43,7 +43,7 @@ project-folder/
 ### 1️⃣ Clone the repository
 
 ```
-git clone 
+git clone https://github.com/Abhay-web-design/Elevate-Labs_tasks/tree/main/Task3
 ```
 
 ### 2️⃣ Install dependencies
@@ -127,8 +127,6 @@ Use **Postman** to test all endpoints:
 ---
 
 ## 📸 API Screenshots (Postman Responses)
-
-> Add your screenshots in a `screenshots/` folder in your repo and update file names if needed.
 
 ### 🔹 GET /books
 
