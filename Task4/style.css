@@ -1,0 +1,516 @@
+/* ==========================================================================
+   CSS Variables & Reset
+   ========================================================================== */
+   :root {
+    --primary-red: #FA5A5A;
+    --primary-red-hover: #e04848;
+    --bg-main: #F4F7FC;
+    --card-bg: #FFFFFF;
+    --text-dark: #2B2B2B;
+    --text-muted: #8E94A3;
+    --text-light: #B0B5C1;
+    --border-color: #E2E8F0;
+    
+    --status-green: #10B981;
+    --status-blue: #3B82F6;
+    --status-red: #EF4444;
+    
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    height: 100vh;
+   overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   Layout Structures
+   ========================================================================== */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.content-area {
+    flex: 1;
+    padding: 24px 32px;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   Header Topbar
+   ========================================================================== */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--bg-main);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-dash { color: var(--primary-red); }
+.logo-board { color: var(--text-dark); }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 16px;
+    padding-right: 40px;
+    border: none;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    outline: none;
+    color: var(--text-dark);
+}
+
+.search-bar button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    background: var(--primary-red);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   Main Content & Dashboard
+   ========================================================================== */
+.view-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.view-section.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+}
+
+.dashboard-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ==========================================================================
+   Cards & Lists
+   ========================================================================== */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-header h3 {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-task-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.date-header {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Task Item Component */
+.task-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 16px;
+ 
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+   gap: 16px;
+    align-items: flex-start;
+}
+
+.task-item:hover { box-shadow: var(--shadow-md); }
+
+/* Circle indicators logic */
+.task-item::before {
+    content: '';
+    position: static;
+    margin-right: 10px;
+    margin-top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+.task-item.priority-Extreme::before { border-color: var(--status-red); }
+.task-item.priority-Moderate::before { border-color: var(--status-blue); }
+.task-item.priority-Low::before { border-color: var(--status-green); }
+
+.task-content { margin-left: 0; min-width: 0; flex: 1; }
+.task-content h4 { font-size: 15px; margin-bottom: 6px; color: var(--text-dark); }
+.task-content p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4; }
+
+.task-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-text.Not.Started { color: var(--status-red); }
+.status-text.In.Progress { color: var(--status-blue); }
+.status-text.Completed { color: var(--status-green); }
+
+.priority-text.Extreme { color: var(--status-blue); /* matching design logic slightly arbitrary in mockups */ }
+
+.task-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Completed Task Specific Styling */
+.completed-card .task-item {
+    padding: 12px;
+}
+.completed-card .task-item::before { border-color: var(--status-green); }
+.completed-card .task-image { width: 60px; height: 60px; }
+
+/* ==========================================================================
+   My Tasks View (Split View)
+   ========================================================================== */
+.mytasks-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 24px;
+    height: 100%;
+}
+
+.mytasks-list-panel {
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+}
+
+.mytasks-detail-panel {
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+    position: relative;
+}
+
+/* Detail View Internals */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.detail-img {
+    width: 200px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.detail-info { flex: 1; }
+.detail-info h2 { font-size: 20px; margin-bottom: 12px; }
+.detail-meta { font-size: 12px; color: var(--text-muted); line-height: 2; }
+.detail-meta span { margin-left: 5px;}
+
+.detail-desc {
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.detail-desc h4 { margin: 16px 0 8px; font-size: 15px;}
+.detail-desc ul { margin-left: 20px; margin-bottom: 16px; color: var(--text-muted); }
+
+.detail-actions {
+    position: static;
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    width: 56px; height: 36px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+.action-btn.delete { background: var(--primary-red); }
+.action-btn.edit { background: var(--primary-red); opacity: 0.8;}
+.action-btn.alert { background: var(--primary-red); opacity: 0.6;}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 16px;
+}
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh; /* important */
+    overflow-y: auto; /* scroll inside modal */
+    border-radius: var(--radius-lg);
+    padding: 20px;
+     box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.go-back-btn {
+    background: none; border: none; font-weight: 600; cursor: pointer; text-decoration: underline;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px;}
+.form-row { display: flex; gap: 20px;}
+.flex-1 { flex: 1; } .flex-2 { flex: 2; }
+
+input[type="text"], input[type="date"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+textarea { height: 120px; resize: none; }
+
+.radio-group { display: flex; gap: 24px; }
+.radio-label { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+
+.upload-zone {
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 12px;
+}
+.upload-zone i { font-size: 24px; margin-bottom: 8px;}
+.browse-btn { margin-top: 8px; padding: 4px 12px; border: 1px solid var(--border-color); background: white; border-radius: 4px; cursor: pointer;}
+
+.submit-btn {
+    background: #FA6B5A;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Responsiveness
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .mytasks-layout { grid-template-columns: 1fr; }
+    .mytasks-list-panel { max-height: 400px; }
+}
+
+@media (max-width: 768px) {
+    .header-actions .date-display { display: none; }
+    .search-bar {
+        width: 100%;
+    }
+
+    .header-right {
+        gap: 10px;
+        width: 100%;
+    }
+    .mytasks-layout {
+        display: flex;
+        flex-direction: column;
+    }
+    .detail-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .detail-header > div {
+        flex-direction: column !important;
+    }
+
+    .detail-img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+     .task-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .task-image {
+        width: 100%;
+        height: 150px;
+        margin-left: 0;
+    }
+
+    .task-content {
+        margin-left: 0;
+    }
+    .form-row { flex-direction: column; }
+    
+    .content-area {
+        padding: 12px;
+    }
+      .modal-content {
+        width: 95%;
+        padding: 16px;
+        border-radius: 12px;
+    }
+      .detail-actions {
+        justify-content: center;
+    }
+
+    .action-btn {
+        flex: 1;
+        min-width: 100px;
+    }
+     .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+}
