@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact UI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- LEFT -->
+  <div class="left">
+    <button class="badge">✉ Start A Project</button>
+
+    <h1>Let's Build Your<br>Digital Future</h1>
+
+    <p>
+      Ready to launch your next project? Fill out the form below or reach out directly to start a conversation.
+    </p>
+
+    <div class="info">
+      <div>📞 +91 9873728256</div>
+      <div>📍 Bangaluru, Karnataka</div>
+      <div>✉ elevate-lab@gmail.com</div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <form id="contactForm">
+
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Name">
+      <small class="error" id="nameError"></small>
+
+      <label>Your Email</label>
+      <input type="text" id="email" placeholder="Email">
+      <small class="error" id="emailError"></small>
+
+      <label>Message</label>
+      <textarea id="message" placeholder="Write your message..."></textarea>
+      <small class="error" id="messageError"></small>
+
+      <button type="submit" class="submit-btn">➤ Submit</button>
+      <p id="successMsg"></p>
+
+    </form>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
