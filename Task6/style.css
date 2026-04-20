@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #dcdcdc;
+}
+
+/* CONTAINER */
+.wrapper {
+  max-width: 1100px;
+  margin: 60px auto;
+  background: #f7f7f7;
+  border-radius: 20px;
+  display: flex;
+  padding: 50px;
+  gap: 40px;
+}
+
+/* LEFT */
+.left {
+  flex: 1;
+}
+
+.badge {
+  border: 1px solid #f4c400;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: transparent;
+  margin-bottom: 20px;
+}
+
+.left h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.left p {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.info div {
+  margin-bottom: 15px;
+}
+
+/* RIGHT */
+.right {
+  flex: 1;
+  background: #f4c400;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.right input,
+.right textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.right textarea {
+  height: 100px;
+  resize: none;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+#successMsg {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .left h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .left h1 {
+    font-size: 26px;
+  }
+}
